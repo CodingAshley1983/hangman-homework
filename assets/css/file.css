@@ -1,0 +1,111 @@
+body {
+    background-image: url(https://i.pinimg.com/564x/21/0b/34/210b347be4aeef1b369e520eb5c404e5.jpg);
+
+}
+
+.container-fluid-1 {
+    display:flex;
+    flex-basis: 80%;
+    font-family: 'Paytone One', sans-serif;
+    justify-content: center;
+    border-color: hotpink;
+    border-width: 2px;
+}
+
+.header {
+    display: flex;
+    flex-basis: 80%;
+    padding-left: 10%;
+    justify-content: center;
+    background-color: black;
+    color: hotpink;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 50px;
+
+}
+h3 {
+    color: teal;
+    padding-left: 10%;
+    font-size: 20px;
+}
+
+
+img {
+    display: flex;
+    align-content: flex-end;
+   margin-left: 80%;
+    height: 200px;
+    width: 200px;
+    background-color: black;
+    border: solid black;
+    border-width: 1px;
+    transform: rotateX(20%);
+}
+
+
+/* new row */
+        .dashes {
+            padding-top: 1%;
+            text-align: center;
+            height: 200px;
+            flex-basis: 80%;
+            background-color: black;
+            font-family: sans-serif;
+            color: hotpink;
+            font-size: 100px;
+            filter:alpha(opacity=85); /* IE */
+            -moz-opacity:0.85; /* Mozilla */
+            opacity: 0.85;
+            filter:alpha(opacity=85);
+
+    }
+/* New row */
+        .game {
+            
+            display: flex;
+            flex-basis: 80%;
+            justify-content: center;
+            font-family: 'Paytone One', sans-serif;
+        }
+       
+        .guessed {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 60%;
+            height: 100px;
+            background-color: teal;
+            color: black;
+            font-size: 30px;
+        }
+        .remaining {
+            display: flex;
+            flex-direction: flex-start;
+            justify-content: center;
+            text-align: center;
+            width: 250px;
+            height: 100px;
+            background-color: hotpink;
+            color: black;
+            font-size: 30px;
+            font-family: 'Paytone One', sans-serif;
+        }
+
+        .score {
+            display: flex;
+            flex-direction: flex-start;
+            justify-content: center;
+            text-align: center;
+            width: 250px;
+            height: 150px;
+            background-color: purple;
+            color: black;
+            font-size: 30px;
+            font-family: 'Paytone One', sans-serif;
+
+        }
+
+footer {
+    background-color: black;
+    height: 25px;
+}

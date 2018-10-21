@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/file.css" />
+    
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+    <!-- <script src="index.js"></script>
+    <script src="main.js"></script> -->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="header">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 style="text-align: center">Hangman!</h1>
+                    <br>
+                    <h3 style="text-align:center">::Press any key to get started::</h3>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Saved_by_the_Bell_logo.png">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid-1">
+        <div class="row dashes">
+            <div class="col" id="dashes">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row game">
+            
+            <div class="col-lg-8 guessed">
+                    <h2>Letters Guessed:</h2>
+                    <p id= "wrongGuesses"></p>
+
+            </div>
+
+      
+         <br>
+        
+            <div class="col-lg-4 remaining">
+                Guesses Left:  <br>
+                <p id= "remaining">
+                    15
+                </p>
+
+            </div>
+        </div>
+    
+        <div class="row bottom">
+            <div class="col-6 score">
+                Wins: <br>
+                <p id= "wins">0</p>
+
+            </div>
+            
+             <div class="col-6 score">
+                 Losses:  <br>
+                     <p id= "losses" >0</p>
+                </div>
+
+        </div>
+
+
+
+        <script>
+        
+
+            window.onload = function () {
+                var targetWord = ""
+                var dashes = [];
+                var wordBank = ["kelly", "slater", "screech", "zack", "jessie", "lisa", "belding", "bayside"];
+           
+           
+                var blanks = [];
+                var wrongLetter = [];
+                var remainingGuesses = 15;
+                var wins = 0; 
+                var losses = 0; 
+
+                function startGame() {
+                    // computer randomly picks a word from the word bank
+                    targetWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+                    // blank word is presented
+                    for (var i = 0; i < targetWord.length; i++) {
+                        dashes.push("_");
+                    }
+                    document.getElementById("dashes").innerHTML = dashes.join(" ");
+                }
+
+                function resetGame() {
+                    dashes= [];
+                    wrongLetter = [];
+                    remainingGuesses = 15;
+                    startGame()
+
+                }
+                // key press is captured
+                document.onkeyup = function (event) {
+                    userPick = event.key;
+                    // condition: if letter matches current word is displayed on "current word"
+                    if (targetWord.indexOf(userPick) > -1) {
+
+                        var displayWord = [];
+                        for (var i = 0; i < targetWord.length; i++) {
+                            if (targetWord[i] === userPick) {
+                                dashes[i] = userPick
+                            }
+                        }
+                    }
+                    // condition: if userPick letter doesn't match targetWord index, display that userPick in 'guessed' div
+                    else if (targetWord.indexOf(userPick)=== -1) {
+                        
+                        console.log("wrong letter")
+                        wrongLetter.push(userPick);
+                        $("#wrongGuesses").text(wrongLetter);
+                       
+                        remainingGuesses--;
+
+                        $("#remaining").text(remainingGuesses);
+
+
+
+                    }
+                    document.getElementById("dashes").innerHTML = dashes.join(" ");
+
+
+                    // when counter reaches 0, alert you lose
+                    if (remainingGuesses=== 0){
+                        alert("You Lose!")
+                        losses++;
+                        $("#losses").text(losses);
+                        resetGame();
+                    }
+                    console.log(targetWord);
+                    console.log(dashes.join(""));
+
+                    // Adding 1 to your score 
+                    if (targetWord === dashes.join("")) {
+                        alert("You Win!")
+                        wins++;
+                        $("#wins").text(wins);
+                        resetGame();
+                    }
+                }
+
+
+                startGame();
+
+
+            }
+        </script>
+
+
+</body>
+
+</html>
