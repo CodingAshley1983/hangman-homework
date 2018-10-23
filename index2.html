@@ -111,6 +111,36 @@
                     startGame()
 
                 }
+                function addImage() {
+                        if (targetWord === "kelly"){
+                            $("img").attr('src', 'assets/images/kelly.jpg');
+                        }
+                        else if(targetWord === "zack"){
+                            $("img").attr('src', 'assets/images/zack.jpg');
+                        }
+                        else if(targetWord === "screech"){
+                            $("img").attr('src', 'assets/images/screech.jpg');
+                        }
+                        else if(targetWord === "slater") {
+                            $("img").attr('src', 'assets/images/slater.jpg');
+                        }
+                        else if(targetWord === "lisa"){
+                            $("img").attr('src', 'assets/images/lisa.jpg');
+                        }
+                        else if(targetWord === "jessie") {
+                            $("img").attr('src', 'assets/images/jessie.jpg');
+                        }
+                        else if(targetWord === "belding") {
+                            $("img").attr('src', "assets/images/belding.jpg")
+                        }
+                        else if(targetWord === "max") {
+                            $("img").attr('src', "assets/images/max.jpg")
+                        }
+                        else if(targetWord === "bayside"){
+                            $("img").attr('src', "assets/images/bayside.jpg") 
+
+                        }
+                    }
                 // key press is captured
                 document.onkeyup = function (event) {
                     userPick = event.key;
@@ -153,6 +183,7 @@
 
                     // Adding 1 to your score 
                     if (targetWord === dashes.join("")) {
+                        addImage();
                         alert("You Win!")
                         wins++;
                         $("#wins").text(wins);
